@@ -1,0 +1,25 @@
+services:
+    catalog-api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        expose:
+            - "80"
+        ports:
+            - "8000:80"
+        #environment:
+         #   - ConnectionStrings__CatalogConnectionString=Server=172.31.98.42;Database=Microsoft.eShopOnContainers.Services.CatalogDb;UID=hieuvt19;Pwd=0968540305As;TrustServerCertificate=True
+        env_file:
+           - .env
+    sqldata:
+         image: mcr.microsoft.com/mssql/server:2017-latest
+         environment:
+             - SA_PASSWORD=1qaZ2wsX
+             - ACCEPT_EULA=Y
+         ports:
+             - "5434:1433"
+    #rabbitmq:
+    #    image: rabbitmq:3-management-alpine
+    #    ports:
+    #      - "15672:15672"
+    #      - "5672:5672"

@@ -1,0 +1,6 @@
+services:
+  catalog-api:
+    ports:
+        - "8001:80"
+    environment:
+        - ConnectionStrings_CatalogConnectionString=Server=172.31.98.42;Database=Microsoft.eShopOnContainers.Services.CatalogDb;UID=hieuvt19;Pwd=0968540305As;TrustServerCertificate=True
